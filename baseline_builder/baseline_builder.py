@@ -217,7 +217,6 @@ def main():
         push_git_tag(spec, "all")
         create_docker_baseline(spec, "all")
     elif len(sys.argv) == 3:
-        print(f"{sys.argv}")
         selected_repo = sys.argv[2]
         if sys.argv[1] == "checkout":
             checkout_git_repositories(spec, selected_repo)
