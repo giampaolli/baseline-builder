@@ -120,7 +120,7 @@
         {
             "repository-name": "flowbroker",
             "github-repository": "dojot/flowbroker",
-            "commit": "7727e08",
+            "commit": "655c07a",
             "nightly-repository": "dojot-nightly/flowbroker",
             "nightly-branch": "master",
             "use-nightly": true,
