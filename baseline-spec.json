@@ -1,5 +1,5 @@
 {
-    "tag": "0.3.0-nightly20180529",
+    "tag": "0.3.0-unfiltered-nightly20180529",
     "components": [
         {
             "repository-name": "history",
