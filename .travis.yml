@@ -1,0 +1,8 @@
+language: python
+python: 3.6
+services:
+  - docker
+script:
+  - python3 ./baseline_builder/baseline_builder.py
+install:
+  - pip3 install -r ./requirements/requirements.txt
