@@ -1,11 +1,11 @@
 import json
 import sys
 import os
-from git import Repo
+from git import Repo, GitCommandError
 import docker
 
 
-def checkout_git_repositories(spec):
+def checkout_git_repositories(spec, selected_repo):
     print("Checking out repositories...")
     username = os.environ["GITHUB_USERNAME"]
     usertoken = os.environ["GITHUB_TOKEN"]
@@ -19,6 +19,11 @@ def checkout_git_repositories(spec):
 
     for repo_config in spec["components"]:
         repository_name = repo_config['repository-name']
+
+        if selected_repo is not "all" and repository_name != selected_repo:
+            print(f"Skipping {repository_name} from checkout.")
+            continue
+
         repository_url = github_preamble + repo_config['github-repository']
         repository_dest = "./git_repos/"+repo_config['repository-name']
         commit_id = repo_config['commit']
@@ -37,45 +42,68 @@ def checkout_git_repositories(spec):
         print("... 'baseline' branch was created")
 
         if repo_config["use-nightly"] == True:
-            print("Checking out nightly mirror repository...")
             nightly_url = github_preamble + repo_config["nightly-repository"]
             nightly_branch = repo_config["nightly-branch"]
             nightly_repo = repo.create_remote("nightly", nightly_url)
+
+            print("Checking out nightly mirror repository...")
+            print(
+                f"From GitHub repository {repo_config['nightly-repository']}")
+            print(f"At branch {nightly_branch}")
+
             nightly_repo.fetch()
             nightly_head = repo.create_head(
-                'baseline-nightly', "nightly/" + nightly_branch)
+                'baseline-nightly', f"nightly/{nightly_branch}")
             repo.head.reference = nightly_head
             repo.head.reset(index=True, working_tree=True)
             print("... nightly mirror repository was cloned, branches updated.")
     print("... repositories were checked out.")
 
 
-def merge_git_branches(spec):
+def merge_git_branches(spec, selected_repo):
     print("Merging branches from repositories with nightly mirrors...")
     for repo_config in spec["components"]:
         repository_name = repo_config['repository-name']
+
+        if selected_repo is not "all" and repository_name != selected_repo:
+            print(f"Skipping {repository_name} from merging.")
+            continue
+
         repository_dest = "./git_repos/"+repo_config['repository-name']
         repo = Repo(repository_dest)
         baseline_head = repo.heads['baseline']
 
         if repo_config["use-nightly"] == True:
             nightly_head = repo.heads['baseline-nightly']
+            repo.head.reference = nightly_head
+            repo.head.reset(index=True, working_tree=True)
             print(f"Merging code from {repository_name}...")
-            merge_base = repo.merge_base(nightly_head, baseline_head)
-            repo.index.merge_tree(nightly_head, base=merge_base)
-            repo.index.commit("Merging from master",
-                              parent_commits=(nightly_head.commit, baseline_head.commit))
+            repo.git.merge(baseline_head)
+            try:
+                repo.git.commit(f"-m \"Merging from {repo_config['commit']}\"")
+            except GitCommandError as error:
+                if "nothing to commit, working tree clean" in error.stdout:
+                    print("Worktree is clean")
+                else:
+                    print("Unrecoverable error: ")
+                    print(f"{error}")
+                    raise error
             print("... merge was committed.")
         else:
             print(f"Repository {repository_name} doesn't need merging.")
     print("... all repositories were merged.")
 
 
-def create_git_tag(spec):
+def create_git_tag(spec, selected_repo):
     print("Creating tag for all repositories...")
     baseline_tag_name = spec["tag"]
     for repo_config in spec["components"]:
         repository_name = repo_config['repository-name']
+
+        if selected_repo is not "all" and repository_name != selected_repo:
+            print(f"Skipping {repository_name} from creating tag.")
+            continue
+
         repository_dest = "./git_repos/"+repo_config['repository-name']
         repo = Repo(repository_dest)
         baseline_head = repo.heads['baseline']
@@ -109,11 +137,16 @@ def create_git_tag(spec):
     print("... all repositories were tagged.")
 
 
-def push_git_tag(spec):
+def push_git_tag(spec, selected_repo):
     print("Pushing everything to GitHub...")
     baseline_tag_name = spec["tag"]
     for repo_config in spec["components"]:
         repository_name = repo_config['repository-name']
+
+        if selected_repo is not "all" and repository_name != selected_repo:
+            print(f"Skipping {repository_name} from pushing tag.")
+            continue
+
         repository_dest = "./git_repos/"+repo_config['repository-name']
         repo = Repo(repository_dest)
         print(f"Pushing tag to repository {repository_name}...")
@@ -128,7 +161,7 @@ def push_git_tag(spec):
 
             print("Pushing baseline tag...")
             baseline_tag = repo.tags[baseline_tag_name]
-            repo.remotes.origin.push(baseline_tag)
+            repo.git.push("nightly", baseline_tag)
             print("... baseline tag was pushed to nightly mirror.")
         else:
             print("Pushing baseline tag...")
@@ -140,7 +173,7 @@ def push_git_tag(spec):
     print("... everything was pushed to GitHub.")
 
 
-def create_docker_baseline(spec):
+def create_docker_baseline(spec, selected_repo):
     client = docker.from_env()
     docker_username = os.environ["DOCKER_USERNAME"]
     docker_password = os.environ["DOCKER_PASSWORD"]
@@ -148,6 +181,12 @@ def create_docker_baseline(spec):
     client.login(docker_username, docker_password)
     print("... logged in.")
     for repo_config in spec["components"]:
+        repository_name = repo_config['repository-name']
+
+        if selected_repo is not "all" and repository_name != selected_repo:
+            print(f"Skipping {repository_name} from pushing Docker images.")
+            continue
+
         for docker_repo in repo_config["docker-hub-repositories"]:
             docker_name = docker_repo["name"]
             docker_tag = docker_repo["tag"]
@@ -171,22 +210,23 @@ def main():
     raw_spec = open("baseline-spec.json", "r")
     # Treat exceptions
     spec = json.loads(raw_spec.read())
-    if len(sys.argv) != 2:
-        checkout_git_repositories(spec)
-        create_git_tag(spec)
-        push_git_tag(spec)
-        create_docker_baseline(spec)
+    if len(sys.argv) != 3:
+        checkout_git_repositories(spec, "all")
+        create_git_tag(spec, "all")
+        push_git_tag(spec, "all")
+        create_docker_baseline(spec, "all")
     else:
+        selected_repo = sys.argv[2]
         if sys.argv[1] == "checkout":
-            checkout_git_repositories(spec)
+            checkout_git_repositories(spec, selected_repo)
         elif sys.argv[1] == "merge":
-            merge_git_branches(spec)
+            merge_git_branches(spec, selected_repo)
         elif sys.argv[1] == "tag":
-            create_git_tag(spec)
+            create_git_tag(spec, selected_repo)
         elif sys.argv[1] == "push":
-            push_git_tag(spec)
+            push_git_tag(spec, selected_repo)
         elif sys.argv[1] == "docker":
-            create_docker_baseline(spec)
+            create_docker_baseline(spec, selected_repo)
         else:
             print("Unknown command.")
 

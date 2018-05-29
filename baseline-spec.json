@@ -36,14 +36,14 @@
         {
             "repository-name": "gui",
             "github-repository": "dojot/gui.git",
-            "commit": "829370d",
+            "commit": "072cb73",
             "nightly-repository": "dojot-nightly/gui.git",
-            "nightly-branch": "master",
+            "nightly-branch": "unfiltered",
             "use-nightly": true,
             "docker-hub-repositories": [
                 {
                     "name": "dojot/gui",
-                    "tag": "latest"
+                    "tag": "unfiltered"
                 }
             ]
         },
