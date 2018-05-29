@@ -148,19 +148,20 @@ def create_docker_baseline(spec):
     client.login(docker_username, docker_password)
     print("... logged in.")
     for repo_config in spec["components"]:
-        docker_repo = repo_config["docker-hub-repository"]
-        docker_tag = repo_config["docker-hub-tag"]
-        baseline_tag_name = spec["tag"]
+        for docker_repo in repo_config["docker-hub-repositories"]:
+            docker_name = docker_repo["name"]
+            docker_tag = docker_repo["tag"]
+            baseline_tag_name = spec["tag"]
 
-        print(f"Pulling image {docker_repo}:{docker_tag}...")
-        image = client.images.pull(docker_repo, tag=docker_tag)
-        print("... image pulled.")
-        print(f"Tagging it with {baseline_tag_name}...")
-        image.tag(docker_repo, tag=baseline_tag_name)
-        print("... tagged.")
-        print("Pushing new tag...")
-        client.images.push(docker_repo, tag=baseline_tag_name)
-        print("... pushed.")
+            print(f"Pulling image {docker_name}:{docker_tag}...")
+            image = client.images.pull(docker_name, tag=docker_tag)
+            print("... image pulled.")
+            print(f"Tagging it with {baseline_tag_name}...")
+            image.tag(docker_name, tag=baseline_tag_name)
+            print("... tagged.")
+            print("Pushing new tag...")
+            client.images.push(docker_name, tag=baseline_tag_name)
+            print("... pushed.")
 
 
 def main():

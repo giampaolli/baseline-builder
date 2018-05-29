@@ -8,8 +8,12 @@
             "nightly-repository": "giovannicuriel/data-broker.git",
             "nightly-branch": "gh-pages",
             "use-nightly": true,
-            "docker-hub-repository": "giovannicuriel/data-broker",
-            "docker-hub-tag": "latest"
+            "docker-hub-repositories": [
+                {
+                    "name": "giovannicuriel/data-broker",
+                    "tag": "latest"
+                }
+            ]
         }
     ]
 }
