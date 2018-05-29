@@ -3,6 +3,9 @@ python: 3.6
 services:
   - docker
 script:
-  - python3 ./baseline_builder/baseline_builder.py
+  - python3 ./baseline_builder/baseline_builder.py checkout
+  - python3 ./baseline_builder/baseline_builder.py merge
+  - python3 ./baseline_builder/baseline_builder.py tag
+  - python3 ./baseline_builder/baseline_builder.py docker
 install:
   - pip3 install -r ./requirements/requirements.txt
