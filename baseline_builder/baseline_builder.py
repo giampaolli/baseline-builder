@@ -20,7 +20,7 @@ def checkout_git_repositories(spec, selected_repo):
     for repo_config in spec["components"]:
         repository_name = repo_config['repository-name']
 
-        if selected_repo is not "all" and repository_name != selected_repo:
+        if selected_repo != "all" and repository_name != selected_repo:
             print(f"Skipping {repository_name} from checkout.")
             continue
 
@@ -65,7 +65,7 @@ def merge_git_branches(spec, selected_repo):
     for repo_config in spec["components"]:
         repository_name = repo_config['repository-name']
 
-        if selected_repo is not "all" and repository_name != selected_repo:
+        if selected_repo != "all" and repository_name != selected_repo:
             print(f"Skipping {repository_name} from merging.")
             continue
 
@@ -100,7 +100,7 @@ def create_git_tag(spec, selected_repo):
     for repo_config in spec["components"]:
         repository_name = repo_config['repository-name']
 
-        if selected_repo is not "all" and repository_name != selected_repo:
+        if selected_repo != "all" and repository_name != selected_repo:
             print(f"Skipping {repository_name} from creating tag.")
             continue
 
@@ -143,7 +143,7 @@ def push_git_tag(spec, selected_repo):
     for repo_config in spec["components"]:
         repository_name = repo_config['repository-name']
 
-        if selected_repo is not "all" and repository_name != selected_repo:
+        if selected_repo != "all" and repository_name != selected_repo:
             print(f"Skipping {repository_name} from pushing tag.")
             continue
 
@@ -183,7 +183,7 @@ def create_docker_baseline(spec, selected_repo):
     for repo_config in spec["components"]:
         repository_name = repo_config['repository-name']
 
-        if selected_repo is not "all" and repository_name != selected_repo:
+        if selected_repo != "all" and repository_name != selected_repo:
             print(f"Skipping {repository_name} from pushing Docker images.")
             continue
 
@@ -210,12 +210,14 @@ def main():
     raw_spec = open("baseline-spec.json", "r")
     # Treat exceptions
     spec = json.loads(raw_spec.read())
-    if len(sys.argv) != 3:
+    if len(sys.argv) == 1:
         checkout_git_repositories(spec, "all")
+        merge_git_branches(spec, "all")
         create_git_tag(spec, "all")
         push_git_tag(spec, "all")
         create_docker_baseline(spec, "all")
-    else:
+    elif len(sys.argv) == 3:
+        print(f"{sys.argv}")
         selected_repo = sys.argv[2]
         if sys.argv[1] == "checkout":
             checkout_git_repositories(spec, selected_repo)
@@ -229,6 +231,9 @@ def main():
             create_docker_baseline(spec, selected_repo)
         else:
             print("Unknown command.")
+    else:
+        print(
+            f"Usage: {sys.argv[0]} [checkout | merge | tag | push | docker] [REPOSITORY | 'all']")
 
 
 if __name__ == "__main__":
