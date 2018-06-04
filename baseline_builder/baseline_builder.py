@@ -176,7 +176,7 @@ def push_git_tag(spec, selected_repo):
 def create_docker_baseline(spec, selected_repo):
     client = docker.from_env()
     docker_username = os.environ["DOCKER_USERNAME"]
-    docker_password = os.environ["DOCKER_PASSWORD"]
+    docker_password = os.environ["DOCKER_TOKEN"]
     print("Logging into Docker Hub...")
     client.login(docker_username, docker_password)
     print("... logged in.")
@@ -205,6 +205,22 @@ def create_docker_baseline(spec, selected_repo):
 
 def main():
     print("Starting baseline builder...")
+
+    failed = False
+    if "GITHUB_USERNAME" not in os.environ:
+        print("GITHUB_USERNAME variable is missing.")
+        failed = True
+    if "GITHUB_TOKEN" not in os.environ:
+        print("GITHUB_TOKEN variable is missing.")
+        failed = True
+    if "DOCKER_USERNAME" not in os.environ:
+        print("DOCKER_USERNAME variable is missing.")
+        failed = True
+    if "DOCKER_TOKEN" not in os.environ:
+        print("DOCKER_TOKEN variable is missing.")
+        failed = True
+    if failed:
+        exit(1)
 
     print("Reading baseline spec file...")
     raw_spec = open("baseline-spec.json", "r")
