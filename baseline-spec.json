@@ -1,5 +1,5 @@
 {
-    "tag": "0.3.0-unfiltered-nightly20180529",
+    "tag": "0.3.0-nightly20180604",
     "components": [
         {
             "repository-name": "history",
@@ -36,14 +36,14 @@
         {
             "repository-name": "gui",
             "github-repository": "dojot/gui.git",
-            "commit": "072cb73",
+            "commit": "6b2f6e9",
             "nightly-repository": "dojot-nightly/gui.git",
-            "nightly-branch": "unfiltered",
+            "nightly-branch": "master",
             "use-nightly": true,
             "docker-hub-repositories": [
                 {
                     "name": "dojot/gui",
-                    "tag": "unfiltered"
+                    "tag": "latest"
                 }
             ]
         },
@@ -64,7 +64,7 @@
         {
             "repository-name": "device-manager",
             "github-repository": "dojot/device-manager.git",
-            "commit": "97c59e7",
+            "commit": "c63244c",
             "nightly-repository": "dojot-nightly/device-manager.git",
             "nightly-branch": "master",
             "use-nightly": true,
