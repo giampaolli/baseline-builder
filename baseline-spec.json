@@ -1,5 +1,5 @@
 {
-    "tag": "0.3.0-nightly20180604",
+    "tag": "0.3.0-nightly20180607",
     "components": [
         {
             "repository-name": "history",
@@ -50,7 +50,7 @@
         {
             "repository-name": "data-broker",
             "github-repository": "dojot/data-broker.git",
-            "commit": "41cb491",
+            "commit": "a8869d3",
             "nightly-repository": "dojot-nightly/data-broker.git",
             "nightly-branch": "master",
             "use-nightly": true,
@@ -64,7 +64,7 @@
         {
             "repository-name": "device-manager",
             "github-repository": "dojot/device-manager.git",
-            "commit": "c63244c",
+            "commit": "cfa4193",
             "nightly-repository": "dojot-nightly/device-manager.git",
             "nightly-branch": "master",
             "use-nightly": true,
@@ -92,7 +92,7 @@
         {
             "repository-name": "auth",
             "github-repository": "dojot/auth",
-            "commit": "ff662b5",
+            "commit": "eff6a3f",
             "nightly-repository": "dojot-nightly/auth",
             "nightly-branch": "master",
             "use-nightly": true,
@@ -120,7 +120,7 @@
         {
             "repository-name": "flowbroker",
             "github-repository": "dojot/flowbroker",
-            "commit": "655c07a",
+            "commit": "62490d2",
             "nightly-repository": "dojot-nightly/flowbroker",
             "nightly-branch": "master",
             "use-nightly": true,
@@ -155,6 +155,20 @@
             "docker-hub-repositories": [
                 {
                     "name": "dojot/docker-monitor",
+                    "tag": "latest"
+                }
+            ]
+        },
+        {
+            "repository-name": "ejbca-rest",
+            "github-repository": "dojot/ejbca-rest",
+            "commit": "dd2cf3d",
+            "nightly-repository": "dojot-nightly/ejbca-rest",
+            "nightly-branch": "master",
+            "use-nightly": true,
+            "docker-hub-repositories": [
+                {
+                    "name": "dojot/ejbca-rest",
                     "tag": "latest"
                 }
             ]
