@@ -1,5 +1,5 @@
 {
-    "tag": "0.3.0-nightly20180607",
+    "tag": "0.3.0-nightly20180626",
     "components": [
         {
             "repository-name": "history",
@@ -22,7 +22,7 @@
         {
             "repository-name": "iotagent-mosca",
             "github-repository": "dojot/iotagent-mosca.git",
-            "commit": "40c2238",
+            "commit": "f87bd94",
             "nightly-repository": "dojot-nightly/iotagent-mosca.git",
             "nightly-branch": "master",
             "use-nightly": true,
@@ -36,7 +36,7 @@
         {
             "repository-name": "gui",
             "github-repository": "dojot/gui.git",
-            "commit": "6b2f6e9",
+            "commit": "78018cf",
             "nightly-repository": "dojot-nightly/gui.git",
             "nightly-branch": "master",
             "use-nightly": true,
@@ -64,7 +64,7 @@
         {
             "repository-name": "device-manager",
             "github-repository": "dojot/device-manager.git",
-            "commit": "cfa4193",
+            "commit": "2c510e7",
             "nightly-repository": "dojot-nightly/device-manager.git",
             "nightly-branch": "master",
             "use-nightly": true,
@@ -92,7 +92,7 @@
         {
             "repository-name": "auth",
             "github-repository": "dojot/auth",
-            "commit": "eff6a3f",
+            "commit": "64f8c55",
             "nightly-repository": "dojot-nightly/auth",
             "nightly-branch": "master",
             "use-nightly": true,
@@ -120,7 +120,7 @@
         {
             "repository-name": "flowbroker",
             "github-repository": "dojot/flowbroker",
-            "commit": "62490d2",
+            "commit": "c76b797",
             "nightly-repository": "dojot-nightly/flowbroker",
             "nightly-branch": "master",
             "use-nightly": true,
@@ -162,7 +162,7 @@
         {
             "repository-name": "ejbca-rest",
             "github-repository": "dojot/ejbca-rest",
-            "commit": "dd2cf3d",
+            "commit": "736fbc5",
             "nightly-repository": "dojot-nightly/ejbca-rest",
             "nightly-branch": "master",
             "use-nightly": true,
