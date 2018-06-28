@@ -9,7 +9,7 @@ def checkout_git_repositories(spec, selected_repo):
     print("Checking out repositories...")
     username = os.environ["GITHUB_USERNAME"]
     usertoken = os.environ["GITHUB_TOKEN"]
-    github_preamble = f"https://{username}:{usertoken}@github.com/"
+    github_preamble = "https://" + username + ":" + usertoken + "@github.com/"
     print("Creating output directory...")
     try:
         os.stat("./git_repos")
@@ -21,16 +21,16 @@ def checkout_git_repositories(spec, selected_repo):
         repository_name = repo_config['repository-name']
 
         if selected_repo != "all" and repository_name != selected_repo:
-            print(f"Skipping {repository_name} from checkout.")
+            print("Skipping " + repository_name + " from checkout.")
             continue
 
         repository_url = github_preamble + repo_config['github-repository']
         repository_dest = "./git_repos/"+repo_config['repository-name']
         commit_id = repo_config['commit']
 
-        print(f"Checking out {repository_name}")
-        print(f"From GitHub repository {repo_config['github-repository']}")
-        print(f"At commit {commit_id}")
+        print("Checking out " + repository_name)
+        print("From GitHub repository " + repo_config['github-repository'])
+        print("At commit " + commit_id)
 
         print("Cloning repository...")
         repo = Repo.clone_from(repository_url, repository_dest)
@@ -41,22 +41,22 @@ def checkout_git_repositories(spec, selected_repo):
         repo.head.reset(index=True, working_tree=True)
         print("... 'baseline' branch was created")
 
-        if repo_config["use-nightly"] == True:
+        if repo_config["use-nightly"] is True:
             nightly_url = github_preamble + repo_config["nightly-repository"]
             nightly_branch = repo_config["nightly-branch"]
             nightly_repo = repo.create_remote("nightly", nightly_url)
 
             print("Checking out nightly mirror repository...")
             print(
-                f"From GitHub repository {repo_config['nightly-repository']}")
-            print(f"At branch {nightly_branch}")
+                "From GitHub repository " + repo_config['nightly-repository'])
+            print("At branch " + nightly_branch)
 
             nightly_repo.fetch()
             nightly_head = repo.create_head(
-                'baseline-nightly', f"nightly/{nightly_branch}")
+                'baseline-nightly', "nightly/" + nightly_branch)
             repo.head.reference = nightly_head
             repo.head.reset(index=True, working_tree=True)
-            print("... nightly mirror repository was cloned, branches updated.")
+            print("... nightly mirror repository cloned, branches updated.")
     print("... repositories were checked out.")
 
 
@@ -66,31 +66,32 @@ def merge_git_branches(spec, selected_repo):
         repository_name = repo_config['repository-name']
 
         if selected_repo != "all" and repository_name != selected_repo:
-            print(f"Skipping {repository_name} from merging.")
+            print("Skipping " + repository_name + " from merging.")
             continue
 
         repository_dest = "./git_repos/"+repo_config['repository-name']
         repo = Repo(repository_dest)
         baseline_head = repo.heads['baseline']
 
-        if repo_config["use-nightly"] == True:
+        if repo_config["use-nightly"] is True:
             nightly_head = repo.heads['baseline-nightly']
             repo.head.reference = nightly_head
             repo.head.reset(index=True, working_tree=True)
-            print(f"Merging code from {repository_name}...")
+            print("Merging code from " + repository_name + "...")
             repo.git.merge(baseline_head)
             try:
-                repo.git.commit(f"-m \"Merging from {repo_config['commit']}\"")
+                repo.git.commit("-m \"Merging from "
+                                "" + repo_config['commit'] + "\"")
             except GitCommandError as error:
-                if "nothing to commit, working tree clean" in error.stdout:
+                if "nothing to commit" in error.stdout:
                     print("Worktree is clean")
                 else:
                     print("Unrecoverable error: ")
-                    print(f"{error}")
+                    print(error)
                     raise error
             print("... merge was committed.")
         else:
-            print(f"Repository {repository_name} doesn't need merging.")
+            print("Repository " + repository_name + " doesn't need merging.")
     print("... all repositories were merged.")
 
 
@@ -101,39 +102,40 @@ def create_git_tag(spec, selected_repo):
         repository_name = repo_config['repository-name']
 
         if selected_repo != "all" and repository_name != selected_repo:
-            print(f"Skipping {repository_name} from creating tag.")
+            print("Skipping " + repository_name + " from creating tag.")
             continue
 
         repository_dest = "./git_repos/"+repo_config['repository-name']
         repo = Repo(repository_dest)
         baseline_head = repo.heads['baseline']
 
-        print(f"Creating tag for repository {repository_name}...")
+        print("Creating tag for repository " + repository_name + "...")
         print("Checking whether tag has already been created...")
 
         if (baseline_tag_name in repo.tags):
             print("... tag has been already created.")
-            print(f"... skipping repository {repository_name}.")
+            print("... skipping repository " + repository_name + ".")
             continue
         else:
             print("... tag is not created yet. Good to go.")
 
-        if repo_config["use-nightly"] == True:
+        if repo_config["use-nightly"] is True:
             nightly_head = repo.heads['baseline-nightly']
 
             print("Creating baseline tag...")
             repo.create_tag(baseline_tag_name, ref=nightly_head,
-                            message=f"Baseline: {baseline_tag_name}")
+                            message="Baseline: " + baseline_tag_name)
 
             print("... baseline tag was created.")
-            print(
-                f"... repository {repository_name} was properly tagged (nightly).")
+            print("... repository " + repository_name +
+                  " was properly tagged (nightly).")
         else:
             print("Creating baseline tag...")
             repo.create_tag(baseline_tag_name, ref=baseline_head,
-                            message=f"Baseline: {baseline_tag_name}")
+                            message="Baseline: " + baseline_tag_name)
             print("... baseline tag was created.")
-            print(f"... repository {repository_name} was properly tagged.")
+            print("... repository " + repository_name +
+                  " was properly tagged.")
     print("... all repositories were tagged.")
 
 
@@ -144,19 +146,19 @@ def push_git_tag(spec, selected_repo):
         repository_name = repo_config['repository-name']
 
         if selected_repo != "all" and repository_name != selected_repo:
-            print(f"Skipping {repository_name} from pushing tag.")
+            print("Skipping " + repository_name + " from pushing tag.")
             continue
 
         repository_dest = "./git_repos/"+repo_config['repository-name']
         repo = Repo(repository_dest)
-        print(f"Pushing tag to repository {repository_name}...")
+        print("Pushing tag to repository " + repository_name + "...")
 
-        if repo_config["use-nightly"] == True:
+        if repo_config["use-nightly"] is True:
             nightly_branch = repo_config["nightly-branch"]
             nightly_head = repo.heads['baseline-nightly']
 
             print("Pushing changes to nightly mirror repository...")
-            repo.git.push("nightly", f"{nightly_head}:{nightly_branch}")
+            repo.git.push("nightly", "" + nightly_head + ":" + nightly_branch)
             print("... changes were pushed to nightly mirror.")
 
             print("Pushing baseline tag...")
@@ -169,7 +171,7 @@ def push_git_tag(spec, selected_repo):
             repo.remotes.origin.push(baseline_tag)
             print("... baseline tag was pushed.")
 
-        print(f"... all changes were pushed to {repository_name}.")
+        print("... all changes were pushed to " + repository_name + ".")
     print("... everything was pushed to GitHub.")
 
 
@@ -184,7 +186,8 @@ def create_docker_baseline(spec, selected_repo):
         repository_name = repo_config['repository-name']
 
         if selected_repo != "all" and repository_name != selected_repo:
-            print(f"Skipping {repository_name} from pushing Docker images.")
+            print("Skipping " + repository_name +
+                  " from pushing Docker images.")
             continue
 
         for docker_repo in repo_config["docker-hub-repositories"]:
@@ -192,10 +195,10 @@ def create_docker_baseline(spec, selected_repo):
             docker_tag = docker_repo["tag"]
             baseline_tag_name = spec["tag"]
 
-            print(f"Pulling image {docker_name}:{docker_tag}...")
+            print("Pulling image " + docker_name + ":" + docker_tag + "...")
             image = client.images.pull(docker_name, tag=docker_tag)
             print("... image pulled.")
-            print(f"Tagging it with {baseline_tag_name}...")
+            print("Tagging it with " + baseline_tag_name + "...")
             image.tag(docker_name, tag=baseline_tag_name)
             print("... tagged.")
             print("Pushing new tag...")
@@ -248,7 +251,8 @@ def main():
             print("Unknown command.")
     else:
         print(
-            f"Usage: {sys.argv[0]} [checkout | merge | tag | push | docker] [REPOSITORY | 'all']")
+            "Usage: " + sys.argv[0] +
+            " [checkout | merge | tag | push | docker] [REPOSITORY | 'all']")
 
 
 if __name__ == "__main__":
