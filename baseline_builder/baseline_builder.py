@@ -158,7 +158,7 @@ def push_git_tag(spec, selected_repo):
             nightly_head = repo.heads['baseline-nightly']
 
             print("Pushing changes to nightly mirror repository...")
-            repo.git.push("nightly", "" + nightly_head + ":" + nightly_branch)
+            repo.git.push("nightly", "" + str(nightly_head) + ":" + str(nightly_branch))
             print("... changes were pushed to nightly mirror.")
 
             print("Pushing baseline tag...")
