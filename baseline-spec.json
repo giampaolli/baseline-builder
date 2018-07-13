@@ -1,5 +1,5 @@
 {
-    "tag": "0.3.0-nightly20180626",
+    "tag": "0.3.0-nightly20180712",
     "components": [
         {
             "repository-name": "history",
@@ -22,7 +22,7 @@
         {
             "repository-name": "iotagent-mosca",
             "github-repository": "dojot/iotagent-mosca.git",
-            "commit": "f87bd94",
+            "commit": "bc33b89",
             "nightly-repository": "dojot-nightly/iotagent-mosca.git",
             "nightly-branch": "master",
             "use-nightly": true,
@@ -36,7 +36,7 @@
         {
             "repository-name": "gui",
             "github-repository": "dojot/gui.git",
-            "commit": "78018cf",
+            "commit": "1b83b74",
             "nightly-repository": "dojot-nightly/gui.git",
             "nightly-branch": "master",
             "use-nightly": true,
@@ -120,7 +120,7 @@
         {
             "repository-name": "flowbroker",
             "github-repository": "dojot/flowbroker",
-            "commit": "c76b797",
+            "commit": "e374889",
             "nightly-repository": "dojot-nightly/flowbroker",
             "nightly-branch": "master",
             "use-nightly": true,
