@@ -1,13 +1,13 @@
 {
-    "tag": "0.3.0-nightly20180712",
+    "tag": "0.3.0-nightly20180807",
     "components": [
         {
             "repository-name": "history",
             "github-repository": "dojot/history.git",
-            "commit": "afb5393",
+            "commit": "0029592",
             "nightly-repository": "dojot-nightly/history.git",
             "nightly-branch": "master",
-            "use-nightly": true,
+            "use-nightly": false,
             "docker-hub-repositories": [
                 {
                     "name": "dojot/history",
@@ -22,10 +22,10 @@
         {
             "repository-name": "iotagent-mosca",
             "github-repository": "dojot/iotagent-mosca.git",
-            "commit": "bc33b89",
+            "commit": "1bedea0",
             "nightly-repository": "dojot-nightly/iotagent-mosca.git",
             "nightly-branch": "master",
-            "use-nightly": true,
+            "use-nightly": false,
             "docker-hub-repositories": [
                 {
                     "name": "dojot/iotagent-mosca",
@@ -36,10 +36,10 @@
         {
             "repository-name": "gui",
             "github-repository": "dojot/gui.git",
-            "commit": "1b83b74",
+            "commit": "c0f30a0",
             "nightly-repository": "dojot-nightly/gui.git",
             "nightly-branch": "master",
-            "use-nightly": true,
+            "use-nightly": false,
             "docker-hub-repositories": [
                 {
                     "name": "dojot/gui",
@@ -50,10 +50,10 @@
         {
             "repository-name": "data-broker",
             "github-repository": "dojot/data-broker.git",
-            "commit": "a8869d3",
+            "commit": "b5b742b",
             "nightly-repository": "dojot-nightly/data-broker.git",
             "nightly-branch": "master",
-            "use-nightly": true,
+            "use-nightly": false,
             "docker-hub-repositories": [
                 {
                     "name": "dojot/data-broker",
@@ -64,10 +64,10 @@
         {
             "repository-name": "device-manager",
             "github-repository": "dojot/device-manager.git",
-            "commit": "2c510e7",
+            "commit": "d137d76 ",
             "nightly-repository": "dojot-nightly/device-manager.git",
             "nightly-branch": "master",
-            "use-nightly": true,
+            "use-nightly": false,
             "docker-hub-repositories": [
                 {
                     "name": "dojot/device-manager",
@@ -78,10 +78,10 @@
         {
             "repository-name": "image-manager",
             "github-repository": "dojot/image-manager.git",
-            "commit": "5c2af51",
+            "commit": "f9628d2",
             "nightly-repository": "dojot-nightly/image-manager.git",
             "nightly-branch": "master",
-            "use-nightly": true,
+            "use-nightly": false,
             "docker-hub-repositories": [
                 {
                     "name": "dojot/image-manager",
@@ -92,10 +92,10 @@
         {
             "repository-name": "auth",
             "github-repository": "dojot/auth",
-            "commit": "64f8c55",
+            "commit": "0cd836e ",
             "nightly-repository": "dojot-nightly/auth",
             "nightly-branch": "master",
-            "use-nightly": true,
+            "use-nightly": false,
             "docker-hub-repositories": [
                 {
                     "name": "dojot/auth",
@@ -106,10 +106,10 @@
         {
             "repository-name": "kong",
             "github-repository": "dojot/kong",
-            "commit": "f6d7539",
+            "commit": "b1a67a3",
             "nightly-repository": "dojot-nightly/kong",
             "nightly-branch": "master",
-            "use-nightly": true,
+            "use-nightly": false,
             "docker-hub-repositories": [
                 {
                     "name": "dojot/kong",
@@ -120,10 +120,10 @@
         {
             "repository-name": "flowbroker",
             "github-repository": "dojot/flowbroker",
-            "commit": "e374889",
+            "commit": "5dba324 ",
             "nightly-repository": "dojot-nightly/flowbroker",
             "nightly-branch": "master",
-            "use-nightly": true,
+            "use-nightly": false,
             "docker-hub-repositories": [
                 {
                     "name": "dojot/flowbroker",
@@ -134,10 +134,10 @@
         {
             "repository-name": "alarm-manager",
             "github-repository": "dojot/alarm-manager",
-            "commit": "77dd2fa",
+            "commit": "989f4f8",
             "nightly-repository": "dojot-nightly/alarm-manager",
             "nightly-branch": "master",
-            "use-nightly": true,
+            "use-nightly": false,
             "docker-hub-repositories": [
                 {
                     "name": "dojot/alarm-manager",
@@ -148,10 +148,10 @@
         {
             "repository-name": "docker-monitor",
             "github-repository": "dojot/docker-monitor",
-            "commit": "4657d2b",
+            "commit": " c32b1af ",
             "nightly-repository": "dojot-nightly/docker-monitor",
             "nightly-branch": "master",
-            "use-nightly": true,
+            "use-nightly": false,
             "docker-hub-repositories": [
                 {
                     "name": "dojot/docker-monitor",
@@ -162,10 +162,10 @@
         {
             "repository-name": "ejbca-rest",
             "github-repository": "dojot/ejbca-rest",
-            "commit": "736fbc5",
+            "commit": "277c97d",
             "nightly-repository": "dojot-nightly/ejbca-rest",
             "nightly-branch": "master",
-            "use-nightly": true,
+            "use-nightly": false,
             "docker-hub-repositories": [
                 {
                     "name": "dojot/ejbca-rest",
