@@ -1,10 +1,10 @@
 {
-    "tag": "0.3.0-nightly20180807",
+    "tag": "0.3.0-nightly20180912",
     "components": [
         {
             "repository-name": "history",
             "github-repository": "dojot/history.git",
-            "commit": "0029592",
+            "commit": "3afd720a195862f979005d626784ded1518e77e6",
             "nightly-repository": "dojot-nightly/history.git",
             "nightly-branch": "master",
             "use-nightly": false,
@@ -22,7 +22,7 @@
         {
             "repository-name": "iotagent-mosca",
             "github-repository": "dojot/iotagent-mosca.git",
-            "commit": "1bedea0",
+            "commit": "5666ea29d0ecac685b85434e6c7d012eef3fc565",
             "nightly-repository": "dojot-nightly/iotagent-mosca.git",
             "nightly-branch": "master",
             "use-nightly": false,
@@ -36,7 +36,7 @@
         {
             "repository-name": "gui",
             "github-repository": "dojot/gui.git",
-            "commit": "c0f30a0",
+            "commit": "7cb7ae62585fa48caf6462854fc1a4ef1e6c155b",
             "nightly-repository": "dojot-nightly/gui.git",
             "nightly-branch": "master",
             "use-nightly": false,
@@ -50,7 +50,7 @@
         {
             "repository-name": "data-broker",
             "github-repository": "dojot/data-broker.git",
-            "commit": "b5b742b",
+            "commit": "8d5ffb7a9249d6eb7228e3001893a2d2410a1895",
             "nightly-repository": "dojot-nightly/data-broker.git",
             "nightly-branch": "master",
             "use-nightly": false,
@@ -64,7 +64,7 @@
         {
             "repository-name": "device-manager",
             "github-repository": "dojot/device-manager.git",
-            "commit": "d137d76 ",
+            "commit": "141947b39c73a63557a69f88bda16321f5bd185f",
             "nightly-repository": "dojot-nightly/device-manager.git",
             "nightly-branch": "master",
             "use-nightly": false,
@@ -78,7 +78,7 @@
         {
             "repository-name": "image-manager",
             "github-repository": "dojot/image-manager.git",
-            "commit": "f9628d2",
+            "commit": "389da1d27aa9654d5e1a2cc18eeb405925fbcbf2",
             "nightly-repository": "dojot-nightly/image-manager.git",
             "nightly-branch": "master",
             "use-nightly": false,
@@ -92,7 +92,7 @@
         {
             "repository-name": "auth",
             "github-repository": "dojot/auth",
-            "commit": "0cd836e ",
+            "commit": "0cd836e2f5bc99fb44f2361d9f2a1055bcc0056f",
             "nightly-repository": "dojot-nightly/auth",
             "nightly-branch": "master",
             "use-nightly": false,
@@ -106,7 +106,7 @@
         {
             "repository-name": "kong",
             "github-repository": "dojot/kong",
-            "commit": "b1a67a3",
+            "commit": "b1a67a310314eca249b3bb6c30f317f70e9af9d9",
             "nightly-repository": "dojot-nightly/kong",
             "nightly-branch": "master",
             "use-nightly": false,
@@ -120,7 +120,7 @@
         {
             "repository-name": "flowbroker",
             "github-repository": "dojot/flowbroker",
-            "commit": "5dba324 ",
+            "commit": "f055a8b618aa605d80e6dea3b51a547bce3d2276",
             "nightly-repository": "dojot-nightly/flowbroker",
             "nightly-branch": "master",
             "use-nightly": false,
@@ -134,7 +134,7 @@
         {
             "repository-name": "alarm-manager",
             "github-repository": "dojot/alarm-manager",
-            "commit": "989f4f8",
+            "commit": "989f4f819406fade515d0a007b4fa913d6846c1c",
             "nightly-repository": "dojot-nightly/alarm-manager",
             "nightly-branch": "master",
             "use-nightly": false,
@@ -148,7 +148,7 @@
         {
             "repository-name": "docker-monitor",
             "github-repository": "dojot/docker-monitor",
-            "commit": " c32b1af ",
+            "commit": "c32b1afbc55d8a92633e6554cd0a01d4f1aa024d",
             "nightly-repository": "dojot-nightly/docker-monitor",
             "nightly-branch": "master",
             "use-nightly": false,
@@ -162,7 +162,7 @@
         {
             "repository-name": "ejbca-rest",
             "github-repository": "dojot/ejbca-rest",
-            "commit": "277c97d",
+            "commit": "277c97da5f02e06b8bb37bbf0a52ecc1d61384fa",
             "nightly-repository": "dojot-nightly/ejbca-rest",
             "nightly-branch": "master",
             "use-nightly": false,
