@@ -1,5 +1,5 @@
 {
-    "tag": "0.3.0-nightly20180912",
+    "tag": "0.3.0-nightly20180918",
     "components": [
         {
             "repository-name": "history",
@@ -11,11 +11,11 @@
             "docker-hub-repositories": [
                 {
                     "name": "dojot/history",
-                    "tag": "latest"
+                    "tag": "0.3.0-nightly20180912"
                 },
                 {
                     "name": "dojot/persister",
-                    "tag": "latest"
+                    "tag": "0.3.0-nightly20180912"
                 }
             ]
         },
@@ -29,14 +29,14 @@
             "docker-hub-repositories": [
                 {
                     "name": "dojot/iotagent-mosca",
-                    "tag": "latest"
+                    "tag": "0.3.0-nightly20180912"
                 }
             ]
         },
         {
             "repository-name": "gui",
             "github-repository": "dojot/gui.git",
-            "commit": "7cb7ae62585fa48caf6462854fc1a4ef1e6c155b",
+            "commit": "0e64bd011b93b3b373022ce7bc19cd6bb85d89f9",
             "nightly-repository": "dojot-nightly/gui.git",
             "nightly-branch": "master",
             "use-nightly": false,
@@ -57,7 +57,7 @@
             "docker-hub-repositories": [
                 {
                     "name": "dojot/data-broker",
-                    "tag": "latest"
+                    "tag": "0.3.0-nightly20180912"
                 }
             ]
         },
@@ -71,7 +71,7 @@
             "docker-hub-repositories": [
                 {
                     "name": "dojot/device-manager",
-                    "tag": "latest"
+                    "tag": "0.3.0-nightly20180912"
                 }
             ]
         },
@@ -85,7 +85,7 @@
             "docker-hub-repositories": [
                 {
                     "name": "dojot/image-manager",
-                    "tag": "latest"
+                    "tag": "0.3.0-nightly20180912"
                 }
             ]
         },
@@ -99,7 +99,7 @@
             "docker-hub-repositories": [
                 {
                     "name": "dojot/auth",
-                    "tag": "latest"
+                    "tag": "0.3.0-nightly20180912"
                 }
             ]
         },
@@ -113,7 +113,7 @@
             "docker-hub-repositories": [
                 {
                     "name": "dojot/kong",
-                    "tag": "latest"
+                    "tag": "0.3.0-nightly20180912"
                 }
             ]
         },
@@ -127,7 +127,7 @@
             "docker-hub-repositories": [
                 {
                     "name": "dojot/flowbroker",
-                    "tag": "latest"
+                    "tag": "0.3.0-nightly20180912"
                 }
             ]
         },
@@ -141,7 +141,7 @@
             "docker-hub-repositories": [
                 {
                     "name": "dojot/alarm-manager",
-                    "tag": "latest"
+                    "tag": "0.3.0-nightly20180912"
                 }
             ]
         },
@@ -155,7 +155,7 @@
             "docker-hub-repositories": [
                 {
                     "name": "dojot/docker-monitor",
-                    "tag": "latest"
+                    "tag": "0.3.0-nightly20180912"
                 }
             ]
         },
@@ -169,7 +169,7 @@
             "docker-hub-repositories": [
                 {
                     "name": "dojot/ejbca-rest",
-                    "tag": "latest"
+                    "tag": "0.3.0-nightly20180912"
                 }
             ]
         }
