@@ -1,5 +1,5 @@
 {
-    "tag": "0.3.0-nightly20180918",
+    "tag": "0.3.0-nightly20180926",
     "components": [
         {
             "repository-name": "history",
@@ -11,32 +11,32 @@
             "docker-hub-repositories": [
                 {
                     "name": "dojot/history",
-                    "tag": "0.3.0-nightly20180912"
+                    "tag": "latest"
                 },
                 {
                     "name": "dojot/persister",
-                    "tag": "0.3.0-nightly20180912"
+                    "tag": "latest"
                 }
             ]
         },
         {
             "repository-name": "iotagent-mosca",
             "github-repository": "dojot/iotagent-mosca.git",
-            "commit": "5666ea29d0ecac685b85434e6c7d012eef3fc565",
+            "commit": "14d3b3c73490c52fd3a07ad905aa6990dec94c77",
             "nightly-repository": "dojot-nightly/iotagent-mosca.git",
             "nightly-branch": "master",
             "use-nightly": false,
             "docker-hub-repositories": [
                 {
                     "name": "dojot/iotagent-mosca",
-                    "tag": "0.3.0-nightly20180912"
+                    "tag": "latest"
                 }
             ]
         },
         {
             "repository-name": "gui",
             "github-repository": "dojot/gui.git",
-            "commit": "0e64bd011b93b3b373022ce7bc19cd6bb85d89f9",
+            "commit": "648b57ae9851b4510b0abcaa992f681fbe2e9087",
             "nightly-repository": "dojot-nightly/gui.git",
             "nightly-branch": "master",
             "use-nightly": false,
@@ -57,7 +57,7 @@
             "docker-hub-repositories": [
                 {
                     "name": "dojot/data-broker",
-                    "tag": "0.3.0-nightly20180912"
+                    "tag": "latest"
                 }
             ]
         },
@@ -71,7 +71,7 @@
             "docker-hub-repositories": [
                 {
                     "name": "dojot/device-manager",
-                    "tag": "0.3.0-nightly20180912"
+                    "tag": "latest"
                 }
             ]
         },
@@ -85,7 +85,7 @@
             "docker-hub-repositories": [
                 {
                     "name": "dojot/image-manager",
-                    "tag": "0.3.0-nightly20180912"
+                    "tag": "latest"
                 }
             ]
         },
@@ -99,7 +99,7 @@
             "docker-hub-repositories": [
                 {
                     "name": "dojot/auth",
-                    "tag": "0.3.0-nightly20180912"
+                    "tag": "latest"
                 }
             ]
         },
@@ -113,21 +113,21 @@
             "docker-hub-repositories": [
                 {
                     "name": "dojot/kong",
-                    "tag": "0.3.0-nightly20180912"
+                    "tag": "latest"
                 }
             ]
         },
         {
             "repository-name": "flowbroker",
             "github-repository": "dojot/flowbroker",
-            "commit": "f055a8b618aa605d80e6dea3b51a547bce3d2276",
+            "commit": "c128a3cc290c4a17653eac1f32a11596ed6a6527",
             "nightly-repository": "dojot-nightly/flowbroker",
             "nightly-branch": "master",
             "use-nightly": false,
             "docker-hub-repositories": [
                 {
                     "name": "dojot/flowbroker",
-                    "tag": "0.3.0-nightly20180912"
+                    "tag": "latest"
                 }
             ]
         },
@@ -141,7 +141,7 @@
             "docker-hub-repositories": [
                 {
                     "name": "dojot/alarm-manager",
-                    "tag": "0.3.0-nightly20180912"
+                    "tag": "latest"
                 }
             ]
         },
@@ -155,7 +155,7 @@
             "docker-hub-repositories": [
                 {
                     "name": "dojot/docker-monitor",
-                    "tag": "0.3.0-nightly20180912"
+                    "tag": "latest"
                 }
             ]
         },
@@ -169,7 +169,7 @@
             "docker-hub-repositories": [
                 {
                     "name": "dojot/ejbca-rest",
-                    "tag": "0.3.0-nightly20180912"
+                    "tag": "latest"
                 }
             ]
         }
