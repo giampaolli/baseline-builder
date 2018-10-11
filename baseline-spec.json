@@ -1,5 +1,5 @@
 {
-    "tag": "0.3.0-nightly20180926",
+    "tag": "0.3.0-nightly20181010",
     "components": [
         {
             "repository-name": "history",
@@ -22,7 +22,7 @@
         {
             "repository-name": "iotagent-mosca",
             "github-repository": "dojot/iotagent-mosca.git",
-            "commit": "14d3b3c73490c52fd3a07ad905aa6990dec94c77",
+            "commit": "b56451f1cbf974749cf47d6d9de16462ccec89c0",
             "nightly-repository": "dojot-nightly/iotagent-mosca.git",
             "nightly-branch": "master",
             "use-nightly": false,
@@ -36,7 +36,7 @@
         {
             "repository-name": "gui",
             "github-repository": "dojot/gui.git",
-            "commit": "648b57ae9851b4510b0abcaa992f681fbe2e9087",
+            "commit": "75385969d20d9b1ecbde7634e76e7378c1bcda23",
             "nightly-repository": "dojot-nightly/gui.git",
             "nightly-branch": "master",
             "use-nightly": false,
@@ -50,7 +50,7 @@
         {
             "repository-name": "data-broker",
             "github-repository": "dojot/data-broker.git",
-            "commit": "8d5ffb7a9249d6eb7228e3001893a2d2410a1895",
+            "commit": "be766ef02382ea37722cbd06788c98e597cdc59a",
             "nightly-repository": "dojot-nightly/data-broker.git",
             "nightly-branch": "master",
             "use-nightly": false,
@@ -64,7 +64,7 @@
         {
             "repository-name": "device-manager",
             "github-repository": "dojot/device-manager.git",
-            "commit": "141947b39c73a63557a69f88bda16321f5bd185f",
+            "commit": "2fb3cd9c735d1a3df055598c142e80b5d1a82c58",
             "nightly-repository": "dojot-nightly/device-manager.git",
             "nightly-branch": "master",
             "use-nightly": false,
@@ -120,7 +120,7 @@
         {
             "repository-name": "flowbroker",
             "github-repository": "dojot/flowbroker",
-            "commit": "c128a3cc290c4a17653eac1f32a11596ed6a6527",
+            "commit": "c97e88e512fd1cc6db4c4df68b8b3243c6895a0d",
             "nightly-repository": "dojot-nightly/flowbroker",
             "nightly-branch": "master",
             "use-nightly": false,
