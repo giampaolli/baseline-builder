@@ -23,7 +23,6 @@ def build_backlog_message(repo, repository_name, last_commit, current_commit):
     message = ""
     print("Building backlog messages for repository " + repository_name)
     while commit_it.hexsha != last_commit:
-        offset = offset + 1
         commit_it = list(repo.iter_commits(current_commit, max_count=1, skip=offset))[0]
         searchObj = re.match("Merge pull request #(.*) from .*", commit_it.message)
         if searchObj:
@@ -37,6 +36,7 @@ def build_backlog_message(repo, repository_name, last_commit, current_commit):
                     message += " " + issue
             message += ": " + title
             messages.append(message)
+        offset = offset + 1
     if messages:
         message = repository_name + "\n"
         for _c in repository_name: message += "-"
@@ -230,7 +230,7 @@ def main():
     else:
         print(
             "Usage: " + sys.argv[0] +
-            " [checkout | merge | tag | push | docker] [REPOSITORY | 'all']")
+            " [checkout | backlog | docker] [REPOSITORY | 'all']")
 
 
 if __name__ == "__main__":
