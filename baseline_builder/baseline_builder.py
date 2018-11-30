@@ -10,11 +10,14 @@ from subprocess import call
 def retrieve_pr(repository_name, pr):
     github_api_token = os.environ["GITHUB_API_TOKEN"]
     r = requests.get("https://api.github.com/repos/" + repository_name + "/pulls/" + pr, headers={'Authorization': 'token ' + github_api_token, 'User-Agent': 'dojot-baseline-builder'})
-    pr_comment = r.json()["body"]
-    title =  r.json()["title"]
-    reg = re.compile("(dojot\/dojot#.[0-9]+)")
-    ret = reg.findall(pr_comment)
-    return [title, ret]
+    if "body" in r.json():
+        pr_comment = r.json()["body"] 
+        title =  r.json()["title"]
+        reg = re.compile("(dojot\/dojot#.[0-9]+)")
+        ret = reg.findall(pr_comment)
+        return [title, ret]
+    else:
+        return ["PR not found", "none"]
 
 def build_backlog_message(repo, repository_name, last_commit, current_commit):
     offset = 0
@@ -182,7 +185,7 @@ def create_docker_baseline(spec, selected_repo):
             repository_dest = "./git_repos/"+repo_config['repository-name']
 
             print("Building image for " + docker_name)
-            os.system("docker build -t " + docker_name + ":" + baseline_tag_name + " -f " + repository_dest + "/" + dockerfile + " " + repository_dest)
+            os.system("docker build -t " + docker_name + ":" + baseline_tag_name + " --no-cache -f " + repository_dest + "/" + dockerfile + " " + repository_dest)
 
             print("Pushing new tag...")
             client.images.push(docker_name + ":" + baseline_tag_name)
