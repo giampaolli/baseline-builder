@@ -1,10 +1,10 @@
 {
-    "tag": "0.3.0-nightly20181030",
+    "tag": "0.3.0-nightly20181129",
     "components": [
         {
             "repository-name": "history",
             "github-repository": "dojot/history",
-            "last-commit": "3afd720a195862f979005d626784ded1518e77e6",
+            "last-commit": "257382679ed2c56ed92f29c8270e79459ecddf76",
             "current-commit": "257382679ed2c56ed92f29c8270e79459ecddf76",
             "docker-hub-repositories": [
                 {
@@ -20,7 +20,7 @@
         {
             "repository-name": "iotagent-mosca",
             "github-repository": "dojot/iotagent-mosca",
-            "last-commit": "b56451f1cbf974749cf47d6d9de16462ccec89c0",
+            "last-commit": "4484b536bc49f68cea9f708ec5fd301908f83efd",
             "current-commit": "4484b536bc49f68cea9f708ec5fd301908f83efd",
             "docker-hub-repositories": [
                 {
@@ -32,8 +32,8 @@
         {
             "repository-name": "gui",
             "github-repository": "dojot/gui",
-            "last-commit": "75385969d20d9b1ecbde7634e76e7378c1bcda23",
-            "current-commit": "1e1c85282b716126a7e0f69dffde8875e39d2755",
+            "last-commit": "1e1c85282b716126a7e0f69dffde8875e39d2755",
+            "current-commit": "62064be9709f967a2073ed9efc2f406e5135ed01",
             "docker-hub-repositories": [
                 {
                     "name": "dojot/gui",
@@ -68,7 +68,7 @@
         {
             "repository-name": "auth",
             "github-repository": "dojot/auth",
-            "last-commit": "0cd836e2f5bc99fb44f2361d9f2a1055bcc0056f",
+            "last-commit": "5519a25ec4a81f739a648083024b0cd117e41611",
             "current-commit": "5519a25ec4a81f739a648083024b0cd117e41611",
             "docker-hub-repositories": [
                 {
@@ -92,8 +92,8 @@
         {
             "repository-name": "flowbroker",
             "github-repository": "dojot/flowbroker",
-            "last-commit": "c97e88e512fd1cc6db4c4df68b8b3243c6895a0d",
-            "current-commit": "8507e608ddcaca682cc6cd0eb420687582be7f09",
+            "last-commit": "8507e608ddcaca682cc6cd0eb420687582be7f09",
+            "current-commit": "35d93e6c46d9ca2728efc02fc90bc31c5b64ab4e",
             "docker-hub-repositories": [
                 {
                     "name": "dojot/flowbroker",
